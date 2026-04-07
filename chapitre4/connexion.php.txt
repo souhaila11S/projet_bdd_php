@@ -1,0 +1,18 @@
+$stmt = $pdo->query("SELECT * FROM table_inexistante");
+ جلب جميع الصفوف من جدول   -> table_inexistante
+
+$stmt->fetchAll(PDO::FETCH_ASSOC)
+يأخذ كل الصفوف المسترجعة من جلب البيانات ويخزنها في المتغير
+$rows
+Sous forme de tableau associatif, où le nom de la colonne sert de clé et la valeur correspond au contenu.
+
+
+ file_put_contents('erreurs.log', $e->getMessage() . PHP_EOL, FILE_APPEND);
+  هاد الجزء من الكود مسؤول على تسجيل الأخطاء فملف كيستعمل الدالة  -> file_put_contents()
+  باش يحط رسالة الخطأ اللي جات من -> $e->getMessage()
+  داخل الملف  -> 'erreurs.log'
+  كل رسالة كتكون فسط سطر بوحدها -> PHP_EOL
+  FILE_APPEND  -> كتخلي الرسائل الجديدة تزاد فآخر الملف بلا ما تمسح الرسائل القديمة
+
+
+

@@ -1,0 +1,51 @@
+1: $sql = "SELECT * FROM Utilisateur" 
+عملنا متغير 
+$sql
+ وخزّناه فيه تعليمات 
+ SQL
+  باش نجيب جميع الصفوف من جدول 
+  Utilisateur
+
+   
+
+2: $stmt = $pdo->query($sql);
+  رسلنا الطلب للقاعدة باش نجيب جميع المستخدمين والنتيجة تخزّنا فالمتغير 
+ $stmt
+  باش نقدر نخدم بها من بعد
+
+
+
+
+  3:$utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+جبدنا جميع النتائج اللي ف
+$stmt
+وخزّناهم فمصفوفة
+$utilisateurs
+
+يعني كل مستخدم كيتخزّن كمصفوفة صغيرة فيها أسماء الأعمدة
+[
+  'id' => 1,
+  'nom' => 'Alice',
+  'email' => 'alice@test.com'
+]
+
+
+
+3:    foreach ($utilisateurs as $user) {
+        echo "<tr>
+        <td>{$user['id']}</td>
+        <td>{$user['nom']}</td>
+        <td>{$user['email']}</td>
+        </tr>";
+    }
+كل مستخدم فالمصفوفة 
+$utilisateurs 
+كندورو عليه، وكنعرضوه كسطر فجدول 
+HTML
+ وكل خانة <td>
+  فيها الرقم التعريفي الاسم والإيميل ديالو
+
+
+
+
+

@@ -1,0 +1,65 @@
+
+  require 'connexion.php';
+
+ if(isset($_POST['add']))
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+
+
+ من بعد كيتحقق واش تصيفطات الفورم ديال الإضافة (add)
+وكيستقبل -> nom et email
+وكيضيفهم فجدول -> Utilisateur
+ باستعمال -> prepare et execute
+
+  $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, email) VALUES (:nom, :email)");
+    $stmt->execute([
+        'nom'=>$nom,
+        'email'=>$email
+    ]);
+
+
+  header("Location: actions_utilisateurs.php");
+    exit;
+ 
+ ومن بعد كيرجع لنفس الصفحة
+
+
+if(isset($_POST['update']))
+    $id = (int)$_POST['id'];
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+
+ كيتحقق من التعديل (update)
+وكيستقبل (id email nom)
+وكيعدّل المستخدم فقاعدة البيانات
+
+
+ $stmt = $pdo->prepare("UPDATE Utilisateur SET nom=:nom, email=:email WHERE id=:id");
+    $stmt->execute([
+        'id'=>$id,
+        'nom'=>$nom,
+        'email'=>$email
+    ]);
+
+ كيتحقق من الحذف (delete)  -> GET
+
+وكيحذف المستخدم حسب -> id
+
+وفي الأخير كيدير
+
+ $stmt = $pdo->query("SELECT * FROM Utilisateur");
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+ كيجيب جميع المستخدمين 
+ ويخزنهم -> $users
+ باش يتعرضو من بعد
+
+
+
+
+
+
+
+
+
+
