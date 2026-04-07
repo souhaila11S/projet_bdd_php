@@ -1,0 +1,20 @@
+﻿
+1️⃣ $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $username, $password);
+
+    🟢Crée une connexion entre PHP et la base de données MySQL avec PDO,
+    en précisant l’hôte (host), le port (port) et le nom de la base (dbname).
+
+
+2️⃣ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  🟢 Active l’affichage des erreurs sous forme d’Exceptions
+   pour détecter facilement les problèmes de connexion
+
+3️⃣ echo "Connexion réussie à la base $dbname";
+
+   🟢 Affiche un message confirmant que la connexion a réussi.
+
+    et Affiche le message d’erreur si la connexion échoue.
+
+
+
