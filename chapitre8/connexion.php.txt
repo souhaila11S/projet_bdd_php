@@ -1,0 +1,21 @@
+class Article 
+    protected $titre;
+    protected $contenu;
+    
+     Ce code définit une nouvelle classe nommée Article qui contient deux propriétés:
+        $titre 
+        $contenu
+
+
+ public function __construct($titre, $contenu) {
+        $this->titre = $titre;
+        $this->contenu = $contenu;
+    }
+    La fonction __construct permet de créer un nouvel article en définissant directement son titre et son contenu au moment de la création de l’objet.
+
+ public function afficher() {
+        return "Titre : " . $this->titre .
+               " - Contenu : " . $this->contenu;
+    }
+
+    Cette fonction récupère le titre et le contenu de l’article et les combine en une seule chaîne pour pouvoir les afficher

@@ -1,0 +1,38 @@
+class Article 
+
+    private $titre;
+    private $contenu;
+
+Cette classe garde le titre et le contenu privés pour que personne ne puisse les modifier directement
+ et on utilise des méthodes pour y accéder ou les changer
+
+
+    public function setTitre($titre) {
+        if (!empty($titre) && strlen($titre) > 3) {
+            $this->titre = $titre;
+        } else {
+            echo "Titre invalide.<br>";
+        }
+
+Cette fonction setTitre() permet de modifier le titre de l’article
+ mais seulement si le titre n’est pas vide et contient plus de 3 caractères  sinon elle affiche le message "Titre invalide"
+
+  public function getTitre() {
+        return $this->titre;
+    }
+Cette fonction te permet de consulter le titre de l’article de manière sécurisée sans le modifier directement
+
+
+ public function setContenu($contenu) {
+        $this->contenu = htmlspecialchars($contenu);
+    }
+
+Cette fonction te permet de définir un nouveau contenu pour l’article
+ de manière sécurisée en empêchant tout code malveillant d’être inséré dans le contenu
+
+ public function getContenu() {
+        return $this->contenu;
+    }
+
+Cette fonction te permet de consulter le contenu de l’article de manière
+ sécurisée sans le modifier directement

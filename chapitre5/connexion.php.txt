@@ -1,0 +1,12 @@
+if(isset($_POST['ok']))
+    $nom = htmlspecialchars(trim($_POST['nom']));
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+
+كيتحقق واش الفورم ترسلات بزر  -> ok
+كينقّي الاسم من الأكواد الخطرة والمسافات الزائدة
+وكيشيك واش الإيميل صالح. إلا ماكانش صالح، كيخزن رسالة خطأ فـ
+$resultat
+إلا كان صالح، كيضيف المستخدم للجدول 
+Utilisateur
+فالأخير كيجيب جميع المستخدمين من الجدول ويخزنهم
+$liste

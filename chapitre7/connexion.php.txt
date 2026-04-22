@@ -1,0 +1,35 @@
+class Article {
+    public $titre;
+    public $contenu;
+
+    public function afficher() {
+        return "Titre : " . $this->titre . 
+               " - Contenu : " . $this->contenu;
+    }
+}
+
+afficher()
+كتستعمل باش تعرض معلومات المقال
+عرفنا كلاس سميتو 
+Article
+
+public $titre;
+public $contenu;
+كل مقال غادي يكون عندو عنوان (titre)
+ومحتوى (contenu)
+
+
+
+$article1 = new Article();
+$article1->titre = "Introduction à PHP";
+$article1->contenu = "PHP est un langage côté serveur.";
+
+Ici, on crée un nouvel article à partir de la classe Article et on le stocke dans la variable $article1.
+On définit le titre de l’article et on lui donne "Introduction à PHP", puis on définit son contenu et on lui donne "PHP est un langage côté serveur
+
+
+
+class BlogArticle extends Article 
+    private $auteur;
+La classe BlogArticle est une extension de la classe Article et ajoute une nouvelle propriété auteur pour stocker le nom de l’auteur de l’article
+

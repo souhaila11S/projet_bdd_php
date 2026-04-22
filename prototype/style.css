@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.article-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.article-card h2 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.article-card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.article-card small {
+    color: #888;
+}

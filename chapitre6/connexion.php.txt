@@ -1,0 +1,8 @@
+ try 
+        $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, email) VALUES (:nom, :email)");
+        $stmt->execute([
+            'nom' => $nom,
+            'email' => $email
+        ]);
+
+

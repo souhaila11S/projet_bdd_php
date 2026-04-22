@@ -1,0 +1,47 @@
+$sqlAdd = "INSERT INTO articles (titre, contenu, auteur) VALUES (:titre, :contenu, :auteur)";
+$stmtAdd = $db->prepare($sqlAdd);
+$stmtAdd->execute([
+    'titre' => 'Nouveau post',
+    'contenu' => 'Ceci est un article ajouté via PDO.',
+    'auteur' => 'Admin'
+]);
+$messageAdd = "Article ajouté avec succès.";
+
+Il ajoute un nouvel article dans le tableau articles 
+de manière sécurisée et affiche un message indiquant : l’article a été ajouté avec succès
+
+
+
+$sqlUpdate = "UPDATE articles SET auteur = :auteur WHERE id = :id";
+$stmtUpdate = $db->prepare($sqlUpdate);
+$stmtUpdate->execute(['auteur' => 'Alice', 'id' => 1]);
+$messageUpdate = "Article mis à jour.";
+
+
+Il prépare et exécute la mise à jour d’un article dans le tableau articles
+ en changeant l’auteur puis affiche un message indiquant : l’article a été mis à jour
+
+
+ $sqlDelete = "DELETE FROM articles WHERE id = :id";
+$stmtDelete = $db->prepare($sqlDelete);
+$stmtDelete->execute(['id' => 2]);
+$messageDelete = "Article supprimé.";
+
+
+Il prépare et exécute la suppression d’un article dans le tableau articles
+ selon son identifiant (id) puis affiche un message indiquant : l’article a été supprimé
+
+
+
+
+ Ce code supprime un article précis du tableau articles 
+ selon son identifiant (id = 2) puis affiche un message indiquant : l’article a été supprimé.
+
+
+
+
+ $stmtRead = $db->query("SELECT * FROM articles");
+$articles = $stmtRead->fetchAll(PDO::FETCH_ASSOC);
+
+Ce code récupère tous les articles du tableau articles et les stocke dans un tableau $articles
+ pour pouvoir les utiliser ou les afficher

@@ -1,0 +1,74 @@
+class User 
+    private $conn;
+    private $table = "users";
+
+    public $id;
+    public $nom;
+    public $email;
+
+Cette classe regroupe les informations de l’utilisateur (id, nom, email) 
+et inclut la connexion à la base de données ainsi que le nom du tableau
+ afin que toute méthode à l’intérieur de la classe puisse manipuler 
+ les données des utilisateurs facilement et en toute sécurité
+
+
+
+ public function __construct($db) {
+        $this->conn = $db;
+    }
+
+
+Elle s’exécute automatiquement dès que l’on crée un objet.
+
+
+
+   public function create() {
+        $sql = "INSERT INTO {$this->table} (nom, email) VALUES (:nom, :email)";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute(['nom' => $this->nom, 'email' => $this->email]);
+    }
+
+
+
+Cette ligne prépare la requête pour qu’elle soit sûre
+ et prête à l’exécution et la stocke dans $stmt 
+ afin que l’objet puisse l’exécuter et ajouter les données dans la base de données
+
+
+
+
+  // READ
+    public function read() {
+        $sql = "SELECT * FROM {$this->table}";
+        $stmt = $this->conn->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    La fonction read() récupère toutes les données du tableau 
+    et les stocke dans un tableau associatif afin que l’objet puisse les voir ou les utiliser
+
+
+
+     public function update() {
+        $sql = "UPDATE {$this->table} SET nom=:nom, email=:email WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute(['nom' => $this->nom, 'email' => $this->email, 'id' => $this->id]);
+    }
+
+    fonction update() permet de modifier le nom et l’email 
+    d’un utilisateur précis selon son id
+     de manière sécurisée en utilisant une requête préparée (prepare)
+      et en exécutant les valeurs stockées dans l’objet (execute)
+
+
+
+        public function delete() {
+        $sql = "DELETE FROM {$this->table} WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute(['id' => $this->id]);
+    }
+
+La fonction delete() permet de supprimer un utilisateur
+ précis selon son id de manière sécurisée 
+ en utilisant une requête préparée (prepare) et
+  en exécutant la valeur stockée dans l’objet (execute)
